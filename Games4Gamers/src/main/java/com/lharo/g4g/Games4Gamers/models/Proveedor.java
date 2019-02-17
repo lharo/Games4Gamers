@@ -18,8 +18,6 @@ public class Proveedor implements Serializable{
 	private int idProveedores;
 	@Column(name = "nombre")
 	private String nombre;
-	@Column(name = "descripcion")
-	private String descripcion;
 	@Column(name = "direccion")
 	private String direccion;
 	@Column(name = "telefono")
@@ -40,12 +38,6 @@ public class Proveedor implements Serializable{
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-	public String getDescripcion() {
-		return descripcion;
-	}
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
 	}
 	public String getDireccion() {
 		return direccion;

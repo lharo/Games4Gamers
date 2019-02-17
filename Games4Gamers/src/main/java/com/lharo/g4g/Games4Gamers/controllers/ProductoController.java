@@ -37,6 +37,7 @@ public class ProductoController {
 		model.addAttribute("product", new Producto());
 		model.addAttribute("listProduct", this.productoService.listProductos());
 		model.addAttribute("listTypeProducts", this.productoService.getCatalogos());
+		model.addAttribute("listProveedores", this.productoService.getProveedores());
 		model.addAttribute("typeProducts", new CatalogoTipoProducto());
 		return "product";
 	}

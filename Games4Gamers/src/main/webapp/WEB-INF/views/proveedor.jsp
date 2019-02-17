@@ -51,16 +51,6 @@
 	</tr>
 	<tr>
 		<td>
-			<form:label path="descripcion">
-				<spring:message text="Descripcion"/>
-			</form:label>
-		</td>
-		<td>
-			<form:input path="descripcion" />
-		</td>
-	</tr>
-	<tr>
-		<td>
 			<form:label path="direccion">
 				<spring:message text="direccion"/>
 			</form:label>
@@ -120,7 +110,6 @@
 	<tr>
 		<th width="80">ID</th>
 		<th width="120">Nombre</th>
-		<th width="120">Descripcion</th>
 		<th width="120">Direccion</th>
 		<th width="120">Telefono</th>
 		<th width="120">Email</th>
@@ -132,7 +121,6 @@
 		<tr>
 			<td>${proveedor.idProveedores}</td>
 			<td>${proveedor.nombre}</td>
-			<td>${proveedor.descripcion}</td>
 			<td>${proveedor.direccion}</td>
 			<td>${proveedor.telefono}</td>
 			<td>${proveedor.email}</td>

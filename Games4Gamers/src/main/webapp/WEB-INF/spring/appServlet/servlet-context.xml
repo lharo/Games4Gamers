@@ -48,6 +48,7 @@
 			<beans:list>
 				<beans:value>com.lharo.g4g.Games4Gamers.models.Producto</beans:value>
 				<beans:value>com.lharo.g4g.Games4Gamers.models.CatalogoTipoProducto</beans:value>
+				<beans:value>com.lharo.g4g.Games4Gamers.models.Proveedor</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">

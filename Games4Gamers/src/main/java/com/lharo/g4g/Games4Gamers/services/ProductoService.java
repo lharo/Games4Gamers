@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.lharo.g4g.Games4Gamers.daos.ProductoDao;
 import com.lharo.g4g.Games4Gamers.models.CatalogoTipoProducto;
 import com.lharo.g4g.Games4Gamers.models.Producto;
+import com.lharo.g4g.Games4Gamers.models.Proveedor;
 
 @Service
 public class ProductoService {
@@ -55,6 +56,11 @@ public class ProductoService {
 	@Transactional
 	public List<CatalogoTipoProducto> getCatalogos(){
 		return this.productoDao.listAllCatalogs();
+	}
+	
+	@Transactional
+	public List<Proveedor> getProveedores(){
+		return this.productoDao.listAllProveedores();
 	}
 	
 }

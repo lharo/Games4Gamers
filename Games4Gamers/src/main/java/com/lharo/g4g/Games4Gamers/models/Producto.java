@@ -25,6 +25,8 @@ public class Producto implements Serializable{
 	private double precio;
 	@Column(name= "id_tipo_producto")
 	private Integer idTipoProducto;
+	@Column(name = "id_proveedor")
+	private Integer idProveedor;
 	
 	public void setIdProductos(int idProductos) {
 		this.idProductos = idProductos;
@@ -55,6 +57,12 @@ public class Producto implements Serializable{
 	}
 	public void setIdTipoProducto(Integer idTipoProducto) {
 		this.idTipoProducto = idTipoProducto;
+	}
+	public Integer getIdProveedor() {
+		return idProveedor;
+	}
+	public void setIdProveedor(Integer idProveedor) {
+		this.idProveedor = idProveedor;
 	}
 	@Override
 	public String toString() {

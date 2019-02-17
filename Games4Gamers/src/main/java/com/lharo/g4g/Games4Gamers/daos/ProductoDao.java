@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.lharo.g4g.Games4Gamers.entities.GenericDaoImpl;
 import com.lharo.g4g.Games4Gamers.models.CatalogoTipoProducto;
 import com.lharo.g4g.Games4Gamers.models.Producto;
+import com.lharo.g4g.Games4Gamers.models.Proveedor;
 
 @Repository
 public class ProductoDao extends GenericDaoImpl{
@@ -62,5 +63,16 @@ public class ProductoDao extends GenericDaoImpl{
 			logger.debug("CatalogoTipoProducto List::"+ e);
 		}
 		return eList;
+	}
+
+	public List<Proveedor> listAllProveedores() {
+
+		Session session = this.sessionFactory.getCurrentSession();
+		List<Proveedor> eList = session.createQuery("from Proveedor").list();
+		for(Proveedor e : eList){
+			logger.info("Proveedor List::"+ e);
+		}
+		return eList;
+
 	}
 }

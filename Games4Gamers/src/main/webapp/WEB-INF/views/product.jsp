@@ -84,6 +84,21 @@
 			</form:select>
 		</td>	
 	</tr>
+		<tr>
+		<td>
+
+			<form:label path="idProveedor">
+				<spring:message text="Proveedor"/>
+			</form:label>
+		</td>
+		<td>
+			<form:select path="idProveedor">	
+				<c:forEach items="${listProveedores}" var="proveedor">
+						<form:option value="${proveedor.idProveedores}">${proveedor.nombre}</form:option>
+				</c:forEach>		
+			</form:select>
+		</td>	
+	</tr>
 	<tr>
 		<td colspan="2">
 			<c:if test="${!empty product.nombre}">
