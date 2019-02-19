@@ -65,7 +65,10 @@ public class ProductoController {
  
     @RequestMapping("/edit/{id}")
     public String editProduct(@PathVariable("id") int id, Model model){
-        model.addAttribute("product", this.productoService.getProductoById(id));
+		model.addAttribute("listTypeProducts", this.productoService.getCatalogos());
+		model.addAttribute("listProveedores", this.productoService.getProveedores());
+		model.addAttribute("typeProducts", new CatalogoTipoProducto());
+    	model.addAttribute("product", this.productoService.getProductoById(id));
         model.addAttribute("listProduct", this.productoService.listProductos());
         return "product";
     }

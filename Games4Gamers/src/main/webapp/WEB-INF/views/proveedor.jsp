@@ -18,6 +18,7 @@
 	</style>
 </head>
 <body>
+<div style="margin-left: 55px; margin-top: 20px;">
 <h1>
 	Add Proveedor
 </h1>
@@ -52,7 +53,7 @@
 	<tr>
 		<td>
 			<form:label path="direccion">
-				<spring:message text="direccion"/>
+				<spring:message text="Direccion"/>
 			</form:label>
 		</td>
 		<td>
@@ -62,7 +63,7 @@
 	<tr>
 		<td>
 			<form:label path="telefono">
-				<spring:message text="telefono"/>
+				<spring:message text="Telefono"/>
 			</form:label>
 		</td>
 		<td>
@@ -72,7 +73,7 @@
 	<tr>
 		<td>
 			<form:label path="email">
-				<spring:message text="email"/>
+				<spring:message text="Email"/>
 			</form:label>
 		</td>
 		<td>
@@ -82,7 +83,7 @@
 	<tr>
 		<td>
 			<form:label path="terminos">
-				<spring:message text="terminos"/>
+				<spring:message text="Terminos"/>
 			</form:label>
 		</td>
 		<td>
@@ -132,6 +133,7 @@
 	</c:forEach>
 	</table>
 </c:if>
+</div>
 </body>
 </html>
 <%@ include file="/Templates/Footer.html" %>

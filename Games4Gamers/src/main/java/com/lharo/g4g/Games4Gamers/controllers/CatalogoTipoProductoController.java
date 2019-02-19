@@ -59,8 +59,8 @@ public class CatalogoTipoProductoController {
  
     @RequestMapping("/editTipoProducto/{id}")
     public String editCatalogoTipoProducto(@PathVariable("id") int id, Model model){
-        model.addAttribute("product", this.catalogoTipoProductoService.getCatalogoTipoProductoById(id));
-        model.addAttribute("listProduct", this.catalogoTipoProductoService.listCatalogoTipoProducto());
+        model.addAttribute("typeProducts", this.catalogoTipoProductoService.getCatalogoTipoProductoById(id));
+        model.addAttribute("listTypeProducts", this.catalogoTipoProductoService.listCatalogoTipoProducto());
         return "tipoProducto";
     }
 }

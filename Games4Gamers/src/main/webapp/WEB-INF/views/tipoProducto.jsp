@@ -18,6 +18,7 @@
 	</style>
 </head>
 <body>
+<div style="margin-left: 55px; margin-top: 20px;">
 <h1>
 	Add a Tipo Producto
 </h1>
@@ -95,6 +96,7 @@
 	</c:forEach>
 	</table>
 </c:if>
+</div>
 </body>
 </html>
 <%@ include file="/Templates/Footer.html" %>
