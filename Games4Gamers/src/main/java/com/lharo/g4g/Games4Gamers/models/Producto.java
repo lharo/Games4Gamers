@@ -27,6 +27,10 @@ public class Producto implements Serializable{
 	private Integer idTipoProducto;
 	@Column(name = "id_proveedor")
 	private Integer idProveedor;
+	@Column(name = "cantidad")
+	private Integer cantidad;
+	@Column(name = "ventas_totales")
+	private int ventasTotales;
 	
 	public void setIdProductos(int idProductos) {
 		this.idProductos = idProductos;
@@ -63,6 +67,18 @@ public class Producto implements Serializable{
 	}
 	public void setIdProveedor(Integer idProveedor) {
 		this.idProveedor = idProveedor;
+	}
+	public Integer getCantidad() {
+		return cantidad;
+	}
+	public void setCantidad(Integer cantidad) {
+		this.cantidad = cantidad;
+	}
+	public int getVentasTotales() {
+		return ventasTotales;
+	}
+	public void setVentasTotales(int ventasTotales) {
+		this.ventasTotales = ventasTotales;
 	}
 	@Override
 	public String toString() {

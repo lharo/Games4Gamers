@@ -1,8 +1,10 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="/Templates/Navbar.html" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="java.util.*"%>
 
-<h3>Hola</h3>
+<%@ include file="/Templates/dashboard.html"%>
+<title>Home</title>
 
 <%@ include file="/Templates/Footer.html" %>
 

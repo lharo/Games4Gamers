@@ -5,21 +5,14 @@
 <%@ page import ="java.util.ArrayList"%>
 <%@ page import ="java.util.List"%>
 <%@ page import ="com.lharo.g4g.Games4Gamers.models.CatalogoTipoProducto"%>
-<%@ include file="/Templates/Navbar.html" %>
+<%@ include file="/Templates/dashboard.html" %>
 
-<html>
-<head>
-	<title>Pagina Producto</title>
-	<style type="text/css">
-		.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
-		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
-		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
-		.tg .tg-4eph{background-color:#f9f9f9}
-	</style>
-</head>
-<body>
+<title>Pagina Producto</title>
 
-<div style="margin-left: 55px; margin-top: 20px;">
+<div class="content">
+   <div class="container-fluid">
+
+
 	<h1>
 		Add a Product
 	</h1>
@@ -43,7 +36,7 @@
 		<tr>
 			<td>
 				<form:label path="nombre">
-					<spring:message text="Nombre"/>
+					<spring:message text="Name"/>
 				</form:label>
 			</td>
 			<td>
@@ -53,7 +46,7 @@
 		<tr>
 			<td>
 				<form:label path="descripcion">
-					<spring:message text="Descripcion"/>
+					<spring:message text="Description"/>
 				</form:label>
 			</td>
 			<td>
@@ -63,11 +56,21 @@
 		<tr>
 			<td>
 				<form:label path="precio">
-					<spring:message text="Precio"/>
+					<spring:message text="Price"/>
 				</form:label>
 			</td>
 			<td>
 				<form:input path="precio" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<form:label path="cantidad">
+					<spring:message text="Quanity"/>
+				</form:label>
+			</td>
+			<td>
+				<form:input path="cantidad" />
 			</td>
 		</tr>
 		<tr>
@@ -104,11 +107,11 @@
 			<td colspan="2">
 				<c:if test="${!empty product.nombre}">
 					<input type="submit"
-						value="<spring:message text="Editar Producto"/>" />
+						value="<spring:message text="Edit Producto"/>" />
 				</c:if>
 				<c:if test="${empty product.nombre}">
 					<input type="submit"
-						value="<spring:message text="Añadir Producto"/>" />
+						value="<spring:message text="Add Producto"/>" />
 				</c:if>
 			</td>
 		</tr>
@@ -120,9 +123,10 @@
 		<table class="tg">
 		<tr>
 			<th width="80">ID</th>
-			<th width="120">Nombre</th>
-			<th width="120">Descripcion</th>
-			<th width="120">Precio</th>
+			<th width="120">Name</th>
+			<th width="120">Description</th>
+			<th width="120">Price</th>
+			<th width="120">Quantity</th>
 			<th width="60">Edit</th>
 			<th width="60">Delete</th>
 		</tr>
@@ -132,6 +136,7 @@
 				<td>${product.nombre}</td>
 				<td>${product.descripcion}</td>
 				<td>${product.precio}</td>
+				<td>${product.cantidad}</td>
 				<td><a href="<c:url value='/edit/${product.idProductos}' />" >Edit</a></td>
 				<td><a href="<c:url value='/remove/${product.idProductos}' />" >Delete</a></td>
 			</tr>

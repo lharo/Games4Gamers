@@ -1,5 +1,6 @@
 package com.lharo.g4g.Games4Gamers.daos;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.lharo.g4g.Games4Gamers.entities.GenericDaoImpl;
 import com.lharo.g4g.Games4Gamers.models.CatalogoTipoProducto;
+import com.lharo.g4g.Games4Gamers.models.DetallesOrden;
 import com.lharo.g4g.Games4Gamers.models.Producto;
 import com.lharo.g4g.Games4Gamers.models.Proveedor;
 
@@ -74,5 +76,21 @@ public class ProductoDao extends GenericDaoImpl{
 		}
 		return eList;
 
+	}
+
+	public void buyProduct(int id, int quantity) {
+		Session session = this.sessionFactory.getCurrentSession();		
+		Producto p = (Producto) session.load(Producto.class, new Integer(id));
+		p.setCantidad(p.getCantidad() - quantity);
+		p.setVentasTotales(p.getVentasTotales() + quantity);
+		DetallesOrden orden = new DetallesOrden();
+		orden.setCantidad(quantity);
+		orden.setCosto(p.getPrecio() * quantity);
+		orden.setIdCliente(0);
+		orden.setIdProducto(id);
+		orden.setFechaOrden(new Date());
+		session.persist(orden);
+		session.update(p);
+		logger.info("Product was bought, Product Details=" + p);
 	}
 }
