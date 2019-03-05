@@ -39,8 +39,6 @@ public class ProveedorController {
 	
 	@RequestMapping(value= "/proveedor/add", method = RequestMethod.POST)
 	public String addProveedor(@ModelAttribute("proveedor") Proveedor p){
-		logger.debug("Proveedor " + gson.toJson(p));
-		System.out.println(p.toString());
 		if(p.getIdProveedores() == 0){
 			this.proveedorService.addProveedor(p);
 		}else{

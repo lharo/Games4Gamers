@@ -4,7 +4,8 @@ import org.springframework.util.DigestUtils;
 
 public class Utility {
 	public static String digestStr(String str) {
-		String digestedStr = DigestUtils.md5DigestAsHex(str.getBytes());
-		return digestedStr;
+		//String digestedStr = DigestUtils.md5DigestAsHex(str.getBytes());
+		//return digestedStr;
+		return str;
 	}
 }

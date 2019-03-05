@@ -4,13 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.lharo.g4g.Games4Gamers.models.CatalogoTipoProducto;
+import com.lharo.g4g.Games4Gamers.models.Producto;
 import com.lharo.g4g.Games4Gamers.models.Proveedor;
 import com.lharo.g4g.Games4Gamers.services.ProductoService;
+import com.lharo.g4g.Games4Gamers.util.User;
 
 @Controller
 public class StaticController {
@@ -46,6 +49,17 @@ public class StaticController {
 	public String listProductos(Model model) {
     	model.addAttribute("mapProduct", this.productoService.getProductHashMap());
 		return "dashboard";
+	}
+	@RequestMapping(value= "/logIn/enter", method = RequestMethod.POST)
+	public String validateUser(@ModelAttribute("usuario") User u){		
+		System.out.println("usuario: " + u);
+		
+		return "dashboard";		
+	}
+	@RequestMapping(value = "/")
+	public String listProducts(Model model) {
+		model.addAttribute("usuario", new User());
+		return "logIn";
 	}
 }
 
