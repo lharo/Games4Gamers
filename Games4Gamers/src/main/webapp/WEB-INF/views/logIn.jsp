@@ -50,7 +50,7 @@
 				<form:form action="${addAction}" commandName="usuario"
 					class="login100-form validate-form">
 
-					<span class="login100-form-title"> Employee Login </span>
+					<span class="login100-form-title"> Login or Register </span>
 
 					<div class="wrap-input100 validate-input"
 						data-validate="Valid email is required: ex@abc.xyz">
@@ -80,7 +80,7 @@
 					</div>
 
 					<div class="text-center p-t-136">
-						<a class="txt2" href="#"> Create your Account <i
+						<a class="txt2" href="http://localhost:8080/Games4Gamers/registro"> Create your Account <i
 							class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
 					</div>

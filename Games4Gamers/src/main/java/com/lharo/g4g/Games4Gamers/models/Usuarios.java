@@ -8,13 +8,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "empleados")
-public class Empleados implements Serializable{
+@Table(name = "usuarios")
+public class Usuarios implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "id_empleado")
-	private int idEmpleado;
+	@Column(name = "id_usuario")
+	private int idUsuario;
 	@Column(name = "primer_nombre")
 	private String primerNombre;
 	@Column(name = "segundo_nombre")
@@ -25,16 +25,24 @@ public class Empleados implements Serializable{
 	private String apellidoMaterno;
 	@Column(name = "rol")
 	private Integer rol;
-	@Column(name = "usuario")
-	private String usuario;
+	@Column(name = "nombre_usuario")
+	private String nombreUsuario;
 	@Column(name = "contrasenia")
 	private String contrasenia;
-	
-	public int getIdEmpleado() {
-		return idEmpleado;
+	@Column(name = "correo_electronico")
+	private String correoElectronico;
+
+	public int getIdUsuario() {
+		return idUsuario;
 	}
-	public void setIdEmpleado(int idEmpleado) {
-		this.idEmpleado = idEmpleado;
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+	public String getNombreUsuario() {
+		return nombreUsuario;
+	}
+	public void setNombreUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
 	}
 	public String getPrimerNombre() {
 		return primerNombre;
@@ -66,16 +74,16 @@ public class Empleados implements Serializable{
 	public void setRol(Integer rol) {
 		this.rol = rol;
 	}
-	public String getUsuario() {
-		return usuario;
-	}
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
 	public String getContrasenia() {
 		return contrasenia;
 	}
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = com.lharo.g4g.Games4Gamers.util.Utility.digestStr(contrasenia);
+	}
+	public String getCorreoElectronico() {
+		return correoElectronico;
+	}
+	public void setCorreoElectronico(String correoElectronico) {
+		this.correoElectronico = correoElectronico;
 	}
 }

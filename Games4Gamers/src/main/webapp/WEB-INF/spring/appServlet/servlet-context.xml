@@ -50,6 +50,8 @@
 				<beans:value>com.lharo.g4g.Games4Gamers.models.CatalogoTipoProducto</beans:value>
 				<beans:value>com.lharo.g4g.Games4Gamers.models.Proveedor</beans:value>
 				<beans:value>com.lharo.g4g.Games4Gamers.models.DetallesOrden</beans:value>
+				<beans:value>com.lharo.g4g.Games4Gamers.models.Usuarios</beans:value>
+				<beans:value>com.lharo.g4g.Games4Gamers.models.Roles</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">
@@ -80,6 +82,13 @@
 	</beans:bean>
 	<beans:bean id="proveedorService" class="com.lharo.g4g.Games4Gamers.services.ProveedorService">
 		<beans:property name="proveedorDao" ref="proveedorDao"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="userDao" class="com.lharo.g4g.Games4Gamers.daos.UserDao">
+		<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="usuarioService" class="com.lharo.g4g.Games4Gamers.services.UserService">
+		<beans:property name="userDao" ref="userDao"></beans:property>
 	</beans:bean>
 	
 	<context:component-scan base-package="com.lharo.g4g.Games4Gamers" />
