@@ -7,7 +7,7 @@
 <%@ page import ="com.lharo.g4g.Games4Gamers.models.CatalogoTipoProducto"%>
 <%@ include file="/Templates/dashboard.html" %>
 
-	<title>Pagina Tipo Producto</title>
+<title>Pagina Tipo Producto</title>
 <div class="content">
 	<div class="container-fluid">
 
@@ -16,7 +16,7 @@
 		<c:url var="addAction" value="/tipoProducto/add"></c:url>
 
 		<form:form action="${addAction}" commandName="typeProducts">
-			<table>
+			<table style="border-collapse:separate; border-spacing:1em">
 				<c:if test="${!empty typeProducts.nombre}">
 					<tr>
 						<td><form:label path="idTipoProducto">

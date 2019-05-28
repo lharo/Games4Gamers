@@ -56,5 +56,4 @@ public class ProveedorService {
 	public List<Proveedor> getProveedores(){
 		return this.proveedorDao.listAll();
 	}
-
 }

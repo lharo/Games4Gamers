@@ -69,7 +69,7 @@ public class UsuarioController {
 	public String validateUser(@ModelAttribute("usuario") User u){				
 		
     	if(this.usuarioService.validateUser(u)) {
-			return "dashboard";		
+			return "management";		
 		}
 		else return "logIn";
 	}

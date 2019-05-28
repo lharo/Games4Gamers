@@ -19,7 +19,7 @@
 	<c:url var="addAction" value="/product/add" ></c:url>	
 	
 	<form:form action="${addAction}" commandName="product">
-	<table>
+		<table style="border-collapse:separate; border-spacing:1em">
 		<c:if test="${!empty product.nombre}">
 		<tr>
 			<td>

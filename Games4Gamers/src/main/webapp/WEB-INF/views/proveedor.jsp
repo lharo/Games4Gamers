@@ -15,7 +15,7 @@
 		<c:url var="addAction" value="/proveedor/add"></c:url>
 
 		<form:form action="${addAction}" commandName="proveedor">
-			<table>
+			<table style="border-collapse:separate; border-spacing:1em">
 				<c:if test="${!empty proveedor.nombre}">
 					<tr>
 						<td><form:label path="idProveedores">
