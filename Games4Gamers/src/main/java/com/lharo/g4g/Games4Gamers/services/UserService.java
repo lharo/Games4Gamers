@@ -61,4 +61,11 @@ public class UserService {
 	public Boolean validateUser(User u) {
 		return this.userDao.validateUser(u);
 	}
+
+	public List<String> getAllUsersMails() {
+		List<String> mails = new ArrayList<String>();
+		for(Usuarios u : listUsuarios())
+			mails.add(u.getCorreoElectronico());
+		return mails;
+	}
 }

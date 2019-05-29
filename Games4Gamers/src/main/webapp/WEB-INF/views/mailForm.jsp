@@ -14,7 +14,7 @@
 			<c:choose>
 				<c:when test="${id == 1}">
 					<h1>
-						Add a Product
+						Send Email
 					</h1>
 					<br>
 					<c:url var="addAction" value="/mailForm/sendMail"></c:url>
@@ -46,12 +46,39 @@
 				</c:when>
 				<c:when test="${id == 2}">
 					<h1>Birthday</h1>
+										<h1>
+						Send Email
+					</h1>
+					<br>
+					<c:url var="addAction" value="/mailForm/sendBirthdayMail"></c:url>
+						<form:form action="${addAction}" commandName="mail">
+							<table style="border-collapse:separate; border-spacing:1em">
+								<tr>
+									<td><form:label path="receivers">
+											<spring:message text="Receiver" />
+										</form:label></td>
+									<td><form:input path="receivers" /></td>
+								</tr>
+								<tr>
+									<td><input type="submit" value="<spring:message text="Send"/>" />
+								</tr>
+								
+							</table>
+						</form:form>					
 				</c:when>
 				<c:when test="${id == 3}">
 					<h1>Reports</h1>
 				</c:when>
 				<c:when test="${id == 4}">
 					<h1>Offers</h1>
+						<c:url var="addAction" value="/mailForm/sendMassiveSpam"></c:url>
+						<form:form action="${addAction}" commandName="mail">
+							<table style="border-collapse:separate; border-spacing:1em">
+								<tr>
+									<td><input type="submit" value="<spring:message text="Spam Every User With a Discount to Our Best Selling Product"/>" />
+								</tr>
+							</table>
+						</form:form>
 				</c:when>
 				<c:when test="${id == 5}">
 					<h1>Send News</h1>

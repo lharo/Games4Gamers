@@ -46,7 +46,7 @@
 							<img alt=""
 								src="http://icons.iconarchive.com/icons/aha-soft/large-seo/128/SEO-icon.png">
 						</p>
-						<a href="http://localhost:8080/Games4Gamers/mailForm/3"
+						<a href="http://localhost:8080/Games4Gamers/mailForm/generateReport"
 							class="btn btn-primary">Send</a>
 					</div>
 				</div>
