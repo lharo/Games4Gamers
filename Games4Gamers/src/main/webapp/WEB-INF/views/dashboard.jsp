@@ -81,7 +81,7 @@
 			<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 				<div class="card shadow">
-					<h4 class="card-header">Revenue <span class="tag tag-success" id="revenue-tag">$41,110</span></h4>
+					<h4 class="card-header">Revenue <span class="tag tag-success" id="revenue-tag">$95,340</span></h4>
 					<div id="revenue-column-chart"></div>
 				</div>
 			</div>

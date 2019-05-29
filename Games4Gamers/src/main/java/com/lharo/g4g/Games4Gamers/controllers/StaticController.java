@@ -12,6 +12,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.itextpdf.text.BaseColor;
@@ -138,35 +140,48 @@ public class StaticController {
 		else return "mailForm";
 	}
 	
-	@RequestMapping("mailForm/generateReport")
-	public ResponseEntity<InputStreamResource> getPDF(){
+	@ResponseBody
+	@RequestMapping(value  = "mailForm/generateReport", headers="Accept=*/*", method = RequestMethod.GET)
+	public ResponseEntity<ByteArrayResource> getPDF(){
 	
 		Document document = new Document();
+		ByteArrayOutputStream byteArrayOutputStream = null;
 		try {
-			//PdfWriter.getInstance(document, new FileOutputStream("DynamicReport.pdf"));
-			ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-
+			byteArrayOutputStream = new ByteArrayOutputStream();
+			PdfWriter.getInstance(document, byteArrayOutputStream);
 			document.open();
 			Font font = FontFactory.getFont(FontFactory.COURIER, 16, BaseColor.BLACK);
-			Chunk chunk = new Chunk("Hello World", font);
+			String report = this.productoService.getAllOrders();
+			Chunk chunk = new Chunk(report, font);
 			 
 			document.add(chunk);
 			document.close();
 
 			//byte[] contents = byteArrayOutputStream.toByteArray();
-			InputStream is = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+			/*InputStream is = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
 
 			HttpHeaders respHeaders = new HttpHeaders();
 			MediaType mediaType = MediaType.parseMediaType("application/pdf");
 			respHeaders.setContentType(mediaType);
 			respHeaders.setContentDispositionFormData("attachment", "DinamicRport.pdf");
-			InputStreamResource isr = new InputStreamResource(is);
-			return new ResponseEntity<InputStreamResource>(isr, respHeaders, HttpStatus.OK);
+			InputStreamResource isr = new InputStreamResource(is);*/
+			//return new ResponseEntity<InputStreamResource>(isr, respHeaders, HttpStatus.OK);
 		}catch (DocumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;		
-	}	
+		//return byteArrayOutputStream;//new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+		//InputStream inputstream = );
+
+		//InputStream inputstream = byteArrayOutputStream.getInputStream();
+        // asume that it was a PDF file
+        HttpHeaders responseHeaders = new HttpHeaders();
+        ByteArrayResource inputStreamResource = new ByteArrayResource(byteArrayOutputStream.toByteArray());//new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
+        responseHeaders.setContentLength(inputStreamResource.contentLength());
+        responseHeaders.setContentType(MediaType.valueOf("application/pdf"));
+        return new ResponseEntity<ByteArrayResource> (inputStreamResource,
+                                   responseHeaders,
+                                   HttpStatus.OK);	
+        }	
 
 }

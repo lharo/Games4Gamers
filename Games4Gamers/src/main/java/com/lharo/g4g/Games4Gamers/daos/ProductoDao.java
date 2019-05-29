@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
+import com.google.gson.Gson;
 import com.lharo.g4g.Games4Gamers.entities.GenericDaoImpl;
 import com.lharo.g4g.Games4Gamers.models.CatalogoTipoProducto;
 import com.lharo.g4g.Games4Gamers.models.DetallesOrden;
@@ -92,5 +93,12 @@ public class ProductoDao extends GenericDaoImpl{
 		session.persist(orden);
 		session.update(p);
 		logger.info("Product was bought, Product Details=" + p);
+	}
+
+	public String getAllOrders() {
+		Session session = this.sessionFactory.getCurrentSession();	
+		List<DetallesOrden> eList = session.createQuery("from DetallesOrden").list();
+		Gson gson = new Gson();
+		return gson.toJson(eList);
 	}
 }

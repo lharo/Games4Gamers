@@ -92,4 +92,9 @@ public class ProductoService {
 		return prods;
 	}
 	
+	@Transactional
+	public String getAllOrders() {
+		return this.productoDao.getAllOrders();
+	}
+	
 }
