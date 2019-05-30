@@ -33,6 +33,7 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.lharo.g4g.Games4Gamers.models.CatalogoTipoProducto;
 import com.lharo.g4g.Games4Gamers.models.Producto;
@@ -151,10 +152,12 @@ public class StaticController {
 			PdfWriter.getInstance(document, byteArrayOutputStream);
 			document.open();
 			Font font = FontFactory.getFont(FontFactory.COURIER, 16, BaseColor.BLACK);
+			Font fancyFont = FontFactory.getFont(FontFactory.COURIER, 40, BaseColor.BLACK);
 			String report = this.productoService.getAllOrders();
-			Chunk chunk = new Chunk(report, font);
-			 
-			document.add(chunk);
+			//Chunk chunk = new Chunk(report, font);
+			document.add(new Chunk("Sales Report \n", fancyFont));
+			document.add(new Paragraph(report,font));
+			//document.add(chunk);
 			document.close();
 
 			//byte[] contents = byteArrayOutputStream.toByteArray();
